@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste</title>
+  <link rel="stylesheet" href="style.css">
+
+<script>
+        function ToggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('close');
+            nav.classList.toggle('open');
+            const outside = document.getElementsByClassName('outside')[0];
+            if (!outside.classList.contains('close'))
+                CloseModal();
+            if (nav.classList.contains('open'))
+                outside.classList.remove('close');
+            else
+                outside.classList.add('close');
+        }
+
+        function ToggleBackground() {
+            const outside = document.getElementsByClassName('outside')[0];
+            const nav = document.querySelector('nav');
+            outside.classList.toggle('close');
+            nav.classList.add('close');
+            nav.classList.remove('open');
+        }
+
+        function CloseModal() {
+            const modals = document.getElementsByClassName('modal');
+            [...modals].forEach(modal => {
+                modal.classList.add('close');
+            })
+        }
+
+        function OpenModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('close');
+            ToggleBackground();
+        }
+    </script>  
+
+<nav class="close">
+        <button onclick="ToggleMenu()" class="button">
+            <i class="fi fi-rs-burger-menu"></i>
+            <span>Menu</span>
+        </button>
+        <div>
+            <ul>
+                <li>
+                    <a class="button" href="#">
+                        <i class="fi fi-rr-stats"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button" href="#">
+                        <i class="fi fi-rs-box-open-full"></i>
+                        <span>Estoque</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button" href="#">
+                        <i class="fi fi-rr-stretcher"></i>
+                        <span>Bens</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button" href="#">
+                        <i class="fi fi-rs-map-location-track"></i>
+                        <span>Movimento</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button" href="#">
+                        <i class="fi fi-rs-shopping-cart-add"></i>
+                        <span>Compra</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <button class="button">
+            <i class="fi fi-rs-sign-out-alt"></i>
+            <span>Logout</span>
+        </button>
+    </nav>
+
+  <style>
+    @font-face {
+      font-family: 'hisa';
+      src: url('Love.ttf') format('opentype'), url('Love.ttf') format('truetype');
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #e3a0ed;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-family: 'hisa','Times',serif;
+      font-size: 3em;
+      font-weight: normal;
+    }
+
+    .imagem-hover {
+      width: 300px;
+      height: 300px;
+      background-image: url("agora_vai.jpg");
+      background-size: cover;
+      transition: background-image 0.3s ease;
+      border-radius: 20px;
+      margin: 20px auto;
+    }
+
+    .imagem-hover:hover {
+      background-image: url("minha_foto.jpg");
+    }
+
+    /* Redemoinho de fotos */
+    .redemoinho-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 40px auto;
+      animation: girar 20s linear infinite;
+    }
+
+    .redemoinho-container img {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    
+  </style>
+</head>
+
+<body>
+
+  <!-- Imagem que troca com hover -->
+  <div class="imagem-hover"></div>
+
+ 
+  <!-- Texto de apresentação -->
+  <section class="panel banner right">
+    <div class="content color0 span-3-75">
+      <h1 class="major">Hisabela da Rocha Campos</h1>
+      <p>Busco sempre ser uma pessoa anteciosa e receptiva, sempre procurando o lado bom em todos os momentos.</p>
+    </div>
+  </section>
+
+  <!-- Hobbies -->
+  <section class="panel color1">
+    <div class="intro joined">
+      <h2 class="major">Hobbies</h2>
+      <p>Ler<br>Ouvir música <br> Tocar teclado <br> Tocar violão</p>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section class="panel color4-alt">
+    <div class="intro color4">
+      <h2 class="major">Contact</h2>
+      <p>47 99700-9894<br>hisabelacampos@gmail.com<br></p>
+    </div>
+    <div class="inner columns divided">
+      <div class="span-3-25">
+        <form method="post" action="#">
+          <div class="fields">
+            <div class="field half">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" />
+            </div>
+            <div class="field half">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea name="message" id="message" rows="4"></textarea>
+            </div>
+          </div>
+          <ul class="actions">
+            <li><input type="submit" value="Send Message" class="button primary" /></li>
+          </ul>
+        </form>
+      </div>
+      <div class="span-1-5">
+        <ul class="contact-icons color1">
+          <li class="icon brands fa-instagram">
+            <a href="https://www.instagram.com/hisacampos" target="_blank">@hisacampos</a>
+          </li>
+          <li class="icon brands fa-facebook-f"><a href="#">Hisabela Campos</a></li>
+          <li class="icon brands fa-snapchat-ghost"><a href="#">Hisa Campos</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
